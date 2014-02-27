@@ -1,0 +1,33 @@
+<!doctype html>
+<!--Index-->
+<html lang="en" ng-app="mediaApp">
+  <head>
+    <meta charset="utf-8">
+      <title>LTM9</title>
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+  </head>
+    <body ng-controller="mediaAppControllers">
+      <p>{{variabile}}</p>
+      <p>Elenco:</p>
+      Ricerca: <input ng-model="query">
+        Ordina by:
+          <select ng-model="orderLTM">
+            <option value="cognome">Alfabetico</option>
+            <option value="specializzazione">Specializzazione</option>
+          </select>
+      <ul>
+        <li ng-repeat="stud in students | filter:query | orderBy:orderLTM">
+        {{stud.cognome}} {{stud.nome}}
+        <p>{{stud.specializzazione}}</p>
+        
+        <!-- <p>
+        {{stud | isGrafico}}</p>
+        <p ng-if="stud.nome == 'Domenico' ">{{stud | isSleeping: true}}</p>
+        -->
+        </li>
+      </ul>
+    </body>
+</html>
